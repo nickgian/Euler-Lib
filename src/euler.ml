@@ -2,7 +2,7 @@ module Info =
 struct
 
   let version = "0.01"
-  let  authors = "Nick Giannarakis, Zoe Paraskevopoulou"
+  let authors = "Nick Giannarakis, Zoe Paraskevopoulou"
 
 end
 
@@ -21,6 +21,16 @@ struct
         | n when n<10 -> (n::acc)
         | n -> aux (n/10) ((n mod 10)::acc)
     in aux x []
+  ;;
+
+  let undigitize lst =
+    let len = List.length lst in
+    let rec aux l fact acc =
+      match l with 
+        | [] -> acc 
+        | x::xs -> aux xs (fact/10) (acc+x*fact)
+    in
+      aux lst (int_pow 10 (len - 1)) 0
   ;;
 
   let isEven n =
@@ -108,25 +118,25 @@ struct
   ;;
 
   let max xs =
-     let rec aux xs max =
+    let rec aux xs max =
       match xs with
         | [] -> max
         | x :: xs -> aux xs (if x > max then x else max)
-     in
-    match xs with
-      | [] -> None
-      | (x::xs) -> Some (aux xs x)
+    in
+      match xs with
+        | [] -> None
+        | (x::xs) -> Some (aux xs x)
   ;;
 
   let min xs =
-     let rec aux xs min =
+    let rec aux xs min =
       match xs with
         | [] -> min
         | x :: xs -> aux xs (if x < min then x else max)
-     in
-    match xs with
-      | [] -> None
-      | (x::xs) -> Some (aux xs x)
+    in
+      match xs with
+        | [] -> None
+        | (x::xs) -> Some (aux xs x)
   ;;
 
 end
