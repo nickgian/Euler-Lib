@@ -17,6 +17,9 @@ module MathTools :
     val digitize : int -> int list
     (** [digitize n] takes an [int n] and returns an [int list] containing the
     digits of n.*)
+    val undigitize : int list -> int
+    val isEven : int -> bool
+    val isOdd : int -> bool
   end
 
 module ArrayTools :
@@ -44,6 +47,8 @@ module ListTools :
     val pairs : 'a list -> 'b list -> 'b list -> ('a * 'b) list -> ('a * 'b) list
     (** [pairs xs xs xs []] returns a [list] containing a tuple [(x,y)] with all
        possible combinations of elements of [xs]*)
+    val max : 'a list -> 'a option
+    val min : ('a list -> 'a option) list -> ('a list -> 'a option) option
   end
 
 module Permutations :
