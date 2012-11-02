@@ -113,8 +113,9 @@ struct
   let rec pairs xs ys theList acc =
     match xs,ys with
       | [], _ -> List.rev acc
-      | x :: xs, _ -> pairs xs theList theList acc
       | x :: xs, y :: ys -> pairs (x :: xs) ys theList ((x,y) :: acc)
+      | x :: xs, _ -> pairs xs theList theList acc
+      
   ;;
 
   let max xs =
